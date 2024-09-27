@@ -1,0 +1,19 @@
+# This file was created Mon Aug 26 12:43:58 2024
+# Created by:
+#                       :-) GROMACS - gmx rms, 2024.2 (-:
+# 
+# Executable:   /usr/local/gromacs/bin/gmx
+# Data prefix:  /usr/local/gromacs
+# Working dir:  /home/austinl/repos/gromacs/tutorial_1/1aki_output
+# Command line:
+#   gmx rms -s md_0_1.tpr -f md_0_1_noPBC.xtc -o rmsd.xvg -tu ns
+# gmx rms is part of G R O M A C S:
+#
+# Georgetown Riga Oslo Madrid Amsterdam Chisinau Stockholm
+#
+@    title "RMSD"
+@    xaxis  label "Time (ns)"
+@    yaxis  label "RMSD (nm)"
+@TYPE xy
+@ subtitle "System after lsq fit to Backbone"
+   0.0000000    1.0761089

@@ -1,0 +1,19 @@
+# This file was created Mon Aug 26 12:44:56 2024
+# Created by:
+#                       :-) GROMACS - gmx rms, 2024.2 (-:
+# 
+# Executable:   /usr/local/gromacs/bin/gmx
+# Data prefix:  /usr/local/gromacs
+# Working dir:  /home/austinl/repos/gromacs/tutorial_1/1aki_output
+# Command line:
+#   gmx rms -s em.tpr -f md_0_1_noPBC.xtc -o rmsd_xtal.xvg -tu ns
+# gmx rms is part of G R O M A C S:
+#
+# GROwing Monsters And Cloning Shrimps
+#
+@    title "RMSD"
+@    xaxis  label "Time (ns)"
+@    yaxis  label "RMSD (nm)"
+@TYPE xy
+@ subtitle "System after lsq fit to Backbone"
+   0.0000000    3.6917121

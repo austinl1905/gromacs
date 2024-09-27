@@ -1,0 +1,45 @@
+# This file was created Tue Sep 17 20:55:46 2024
+# Created by:
+#                      :-) GROMACS - gmx energy, 2024.2 (-:
+# 
+# Executable:   /usr/local/gromacs/bin/gmx
+# Data prefix:  /usr/local/gromacs
+# Working dir:  /home/austinl/repos/gromacs/tutorial_basic
+# Command line:
+#   gmx energy -f nvt.edr -o temperature-nvt-minimal.xvg
+# gmx energy is part of G R O M A C S:
+#
+# Giant Rising Ordinary Mutants for A Clerical Setup
+#
+@    title "GROMACS Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(K)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Temperature"
+    0.000000    0.050965
+    1.000000  352.309082
+    2.000000  377.434814
+    3.000000  383.636902
+    4.000000  372.838440
+    5.000000  362.147003
+    6.000000  394.252625
+    7.000000  370.035919
+    8.000000  369.886719
+    9.000000  369.004517
+   10.000000  378.991364
+   11.000000  366.734070
+   12.000000  372.118164
+   13.000000  366.935181
+   14.000000  367.716583
+   15.000000  358.652649
+   16.000000  381.273987
+   17.000000  353.606781
+   18.000000  363.242004
+   19.000000  380.159210
+   20.000000  377.534698
