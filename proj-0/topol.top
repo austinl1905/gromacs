@@ -2,7 +2,7 @@
 ;	File 'topol.top' was generated
 ;	By user: unknown (1000)
 ;	On host: DESKTOP-RCELDJA
-;	At date: Sun Sep 22 19:43:41 2024
+;	At date: Sun Sep 29 21:41:07 2024
 ;
 ;	This is a standalone topology file
 ;
@@ -13,7 +13,7 @@
 ;	Data prefix:  /usr/local/gromacs
 ;	Working dir:  /home/austinl/repos/gromacs/proj-0
 ;	Command line:
-;	  gmx pdb2gmx -f ethane.pdb -o ethane_processed.pdb -p topol.top
+;	  gmx pdb2gmx -f ethane.pdb -o ethane.gro
 ;	Force field was read from the standard GROMACS share directory.
 ;
 
@@ -105,9 +105,8 @@ Other_chain_A       3
 
 [ system ]
 ; Name
-Protein in water
+Protein
 
 [ molecules ]
 ; Compound        #mols
 Other_chain_A       1
-SOL             32684
