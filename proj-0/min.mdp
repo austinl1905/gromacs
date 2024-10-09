@@ -1,8 +1,8 @@
 ;
-;	File 'mdout.mdp' was generated
+;	File 'min.mdp' was generated
 ;	By user: unknown (1000)
 ;	On host: DESKTOP-RCELDJA
-;	At date: Sun Oct  6 20:46:20 2024
+;	At date: Tue Oct  8 19:36:39 2024
 ;
 ;	Created by:
 ;	                     :-) GROMACS - gmx grompp, 2024.2 (-:
@@ -11,7 +11,7 @@
 ;	Data prefix:  /usr/local/gromacs
 ;	Working dir:  /home/austinl/repos/gromacs/proj-0
 ;	Command line:
-;	  gmx grompp -f input/min.mdp -c ethane_box_solv.gro -p topol.top -o min.tpr
+;	  gmx grompp -f input/min.mdp -c ethane_box_solv.gro -p topol.top -o min -pp min -po min
 
 ; VARIOUS PREPROCESSING OPTIONS
 ; Preprocessor information: use cpp syntax.
@@ -21,7 +21,7 @@ include                  =
 define                   = 
 
 ; RUN CONTROL PARAMETERS
-integrator               = md
+integrator               = steep
 ; Start time and timestep in ps
 tinit                    = 0
 dt                       = 0.002
@@ -35,7 +35,7 @@ mts                      = no
 ; factor by which to increase the mass of the lightest atoms
 mass-repartition-factor  = 1
 ; mode for center of mass motion removal
-comm-mode                = angular
+comm-mode                = Linear
 ; number of steps for center of mass motion removal
 nstcomm                  = 100
 ; group(s) for center of mass motion removal
@@ -82,11 +82,11 @@ energygrps               =
 
 ; NEIGHBORSEARCHING PARAMETERS
 ; cut-off scheme (Verlet: particle based cut-offs)
-cutoff-scheme            = group
+cutoff-scheme            = Verlet
 ; nblist update frequency
-nstlist                  = 0
+nstlist                  = 10
 ; Periodic boundary conditions: xyz, no, xy
-pbc                      = no
+pbc                      = xyz
 periodic-molecules       = no
 ; Allowed energy drift due to the Verlet buffer in kJ/mol/ps per atom,
 ; a value of -1 means: use rlist
@@ -94,15 +94,15 @@ verlet-buffer-tolerance  = 0.005
 ; Allowed error in the average pressure due to the Verlet buffer for LJ interactions
 verlet-buffer-pressure-tolerance = 0.5
 ; nblist cut-off        
-rlist                    = 0
+rlist                    = 1
 ; long-range cut-off for switched potentials
 
 ; OPTIONS FOR ELECTROSTATICS AND VDW
 ; Method for doing electrostatics
-coulombtype              = cutoff
+coulombtype              = Cut-off
 coulomb-modifier         = Potential-shift-Verlet
 rcoulomb-switch          = 0
-rcoulomb                 = 0
+rcoulomb                 = 1
 ; Relative dielectric constant for the medium and the reaction field
 epsilon-r                = 1
 epsilon-rf               = 0
@@ -111,7 +111,7 @@ vdw-type                 = Cut-off
 vdw-modifier             = Potential-shift-Verlet
 ; cut-off lengths       
 rvdw-switch              = 0
-rvdw                     = 0
+rvdw                     = 1
 ; Apply long range dispersion corrections for Energy and Pressure
 DispCorr                 = No
 ; Extension of the potential lookup tables beyond the cut-off
@@ -137,15 +137,15 @@ implicit-solvent         = no
 ensemble-temperature-setting = auto
 ensemble-temperature     = -1
 ; Temperature coupling  
-tcoupl                   = V-rescale
+tcoupl                   = No
 nsttcouple               = -1
 nh-chain-length          = 10
 print-nose-hoover-chain-variables = no
 ; Groups to couple separately
-tc_grps                  = System
+tc-grps                  = 
 ; Time constant (ps) and reference temperature (K)
-tau_t                    = 0.1
-ref_t                    = 298
+tau-t                    = 
+ref-t                    = 
 ; pressure coupling     
 pcoupl                   = No
 pcoupltype               = Isotropic
@@ -173,9 +173,9 @@ annealing-time           =
 annealing-temp           = 
 
 ; GENERATE VELOCITIES FOR STARTUP RUN
-gen_vel                  = yes
-gen_temp                 = 298
-gen_seed                 = -1795432969
+gen-vel                  = no
+gen-temp                 = 300
+gen-seed                 = -53724549
 
 ; OPTIONS FOR BONDS    
 constraints              = none
