@@ -1,0 +1,24 @@
+; File: min.mdp
+; GROMACS input file for energy minimization
+
+integrator      = steep           ; Algorithm: steepest descent
+emtol           = 1000.0          ; Stop minimization when Fmax < 1000.0 kJ/mol/nm
+emstep          = 0.01            ; Maximum step size in nm
+nsteps          = 50000           ; Maximum number of minimization steps
+
+; Output control
+nstenergy       = 1               ; Frequency to write energies to the log file
+
+; Neighbor searching
+cutoff-scheme   = Verlet          ; Use the Verlet cutoff scheme
+nstlist         = 10              ; Frequency to update neighbor list
+ns_type         = grid            ; Search for neighbors using a grid
+rlist           = 1.0             ; Short-range neighbor list cutoff (in nm)
+
+; Electrostatics and Van der Waals
+coulombtype     = PME             ; Particle Mesh Ewald for long-range electrostatics
+rcoulomb        = 1.0             ; Short-range electrostatic cutoff (in nm)
+rvdw            = 1.0             ; Short-range van der Waals cutoff (in nm)
+
+; Apply constraints to bonds
+constraints     = none            ; No constraints during energy minimization
