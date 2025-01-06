@@ -1,0 +1,51 @@
+; File: npt.mdp
+; GROMACS input file for NPT equilibration
+
+; Run parameters
+integrator      = md               ; Molecular dynamics integrator
+dt              = 0.002            ; Time step in ps
+nsteps          = 50000            ; Number of steps (100 ps total simulation time)
+
+; Output control
+nstxout         = 1000             ; Write coordinates to output every 1000 steps
+nstvout         = 1000             ; Write velocities to output every 1000 steps
+nstenergy       = 100              ; Write energies to output every 100 steps
+nstlog          = 100              ; Write log information every 100 steps
+nstxout-compressed = 1000          ; Write compressed coordinates every 1000 steps
+
+; Neighbor searching
+cutoff-scheme   = Verlet           ; Use Verlet cutoff scheme
+nstlist         = 10               ; Frequency to update the neighbor list
+ns_type         = grid             ; Use grid-based neighbor searching
+rlist           = 1.0              ; Short-range neighbor list cutoff (in nm)
+
+; Electrostatics and van der Waals
+coulombtype     = PME              ; Particle Mesh Ewald for long-range electrostatics
+rcoulomb        = 1.0              ; Short-range electrostatic cutoff (in nm)
+rvdw            = 1.0              ; Short-range van der Waals cutoff (in nm)
+
+; Temperature coupling
+tcoupl          = V-rescale        ; Use velocity-rescale thermostat
+tc-grps         = System           ; Apply thermostat to the entire system
+tau_t           = 0.1              ; Time constant for coupling (ps)
+ref_t           = 300.0            ; Reference temperature (K)
+
+; Pressure coupling
+pcoupl          = Parrinello-Rahman ; Use Parrinello-Rahman barostat for pressure coupling
+pcoupltype      = isotropic        ; Isotropic pressure coupling
+tau_p           = 2.0              ; Time constant for pressure coupling (ps)
+ref_p           = 1.0              ; Reference pressure (bar)
+compressibility = 4.5e-5           ; Compressibility of water (1/bar)
+
+; Constraints
+constraints     = h-bonds          ; Constrain bonds involving hydrogen
+constraint_algorithm = LINCS       ; Use LINCS algorithm for constraints
+
+; Periodic boundary conditions
+pbc             = xyz              ; Periodic boundary conditions in all directions
+
+; Dispersion correction
+DispCorr        = EnerPres         ; Apply dispersion correction for energy and pressure
+
+; Velocity generation
+gen_vel         = no    
